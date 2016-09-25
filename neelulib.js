@@ -40,7 +40,7 @@ NeeluLib.prototype.escHTML = function(html) {
 };
 
 NeeluLib.prototype.inclJS = function(src, ele, asynch) {
-  var request = new XMLHttpRequest();
+  var request = new(XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');;
   request.open('GET', src, asynch);
   request.send('');
   var element = document.createElement('script');
@@ -82,13 +82,15 @@ NeeluLib.prototype.serialize = function(inp) {
 };
 
 NeeluLib.prototype.ajax = function(url, req, data, headers, cb) {
-  var request = new XMLHttpRequest();
+  var request = new(XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');;
   request.open(req, url, false);
   for (i = 0; i < headers.length; i++) {
     request.setRequestHeader(i, headers[i]);
   }
   request.send(NeeluLib.prototype.serialize(data));
-  cb(request.response);
+  if (cb) {
+    cb(request.response);
+  }
   return request.response;
 };
 
@@ -121,7 +123,7 @@ NeeluLib.prototype.el = function(element) {
 // End NeeluLib Function Creation
 
 var nl = new NeeluLib(); // Assign variable nl to prototype NeeluLib()
-var π = new NeeluLib(); // Assign variable π to prototype NeeluLib()
+var n = new NeeluLib(); // Assign variable π to prototype NeeluLib()
 
 // Start Import Libraries
 
