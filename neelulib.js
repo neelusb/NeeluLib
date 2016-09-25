@@ -123,7 +123,8 @@ NeeluLib.prototype.el = function(element) {
 // End NeeluLib Function Creation
 
 var nl = new NeeluLib(); // Assign variable nl to prototype NeeluLib()
-var n = new NeeluLib(); // Assign variable π to prototype NeeluLib()
+
+var n = new NeeluLib(); // Assign variable n to prototype NeeluLib()
 
 // Start Import Libraries
 
